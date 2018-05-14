@@ -1,0 +1,5 @@
+web:
+    hooks:
+        bingApi:
+            title: "BingApi"
+            tagId: "Vaše \"Bing tag ID\""

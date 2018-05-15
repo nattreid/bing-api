@@ -22,7 +22,8 @@ use Nette\DI\Statement;
 abstract class AbstractBingApiExtension extends CompilerExtension
 {
 	private $defaults = [
-		'tagId' => null
+		'tagId' => null,
+		'meta' => null
 	];
 
 	public function loadConfiguration(): void
@@ -42,6 +43,7 @@ abstract class AbstractBingApiExtension extends CompilerExtension
 	{
 		$bingConfig = new BingApiConfig;
 		$bingConfig->tagId = $config['tagId'];
+		$bingConfig->meta = $config['meta'];
 		return $bingConfig;
 	}
 }

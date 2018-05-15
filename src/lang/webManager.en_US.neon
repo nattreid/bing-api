@@ -2,4 +2,9 @@ web:
     hooks:
         bingApi:
             title: "BingApi"
-            tagId: "Your \"Bing tag ID\""
+            tag:
+            	title: "Bing UET"
+            	tagId: "Your \"Bing tag ID\""
+            meta:
+            	title: "Verification"
+            	meta: "Meta"

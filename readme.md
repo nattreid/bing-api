@@ -26,6 +26,9 @@ public function renderDefault() {
 v @layout.latte
 ```latte
 <html>
+<head>
+    {control bingApi:head}
+</head>
 <body>
     <!-- html kod -->
     {control bingApi}

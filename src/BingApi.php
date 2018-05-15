@@ -48,6 +48,13 @@ class BingApi extends Control
 		$this->template->setFile(__DIR__ . '/templates/default.latte');
 		$this->template->render();
 	}
+
+	public function renderHead(): void
+	{
+		$this->template->meta = $this->config->meta;
+		$this->template->setFile(__DIR__ . '/templates/head.latte');
+		$this->template->render();
+	}
 }
 
 interface IBingApiFactory

@@ -34,8 +34,13 @@ class BingApiHook extends HookFactory
 		$form = $this->formFactory->create();
 		$form->setAjaxRequest();
 
-		$form->addInteger('tagId', 'webManager.web.hooks.bingApi.tagId')
+		$form->addGroup('webManager.web.hooks.bingApi.tag.title');
+		$form->addInteger('tagId', 'webManager.web.hooks.bingApi.tag.tagId')
 			->setDefaultValue($this->configurator->bingApi->tagId);
+
+		$form->addGroup('webManager.web.hooks.bingApi.meta.title');
+		$form->addText('meta', 'webManager.web.hooks.bingApi.meta.meta')
+			->setDefaultValue($this->configurator->bingApi->meta);
 
 		$form->addSubmit('save', 'form.save');
 
@@ -49,6 +54,7 @@ class BingApiHook extends HookFactory
 		$config = $this->configurator->bingApi;
 
 		$config->tagId = $values->tagId ?: null;
+		$config->meta = $values->meta ?: null;
 
 		$this->configurator->bingApi = $config;
 

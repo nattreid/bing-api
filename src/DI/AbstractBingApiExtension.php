@@ -31,7 +31,7 @@ abstract class AbstractBingApiExtension extends CompilerExtension
 		$builder = $this->getContainerBuilder();
 		$config = $this->validateConfig($this->defaults, $this->getConfig());
 
-		$bingApi = $this->prepareHook($config);
+		$bingApi = $this->prepareConfig($config);
 
 		$builder->addDefinition($this->prefix('factory'))
 			->setImplement(IBingApiFactory::class)
@@ -39,11 +39,12 @@ abstract class AbstractBingApiExtension extends CompilerExtension
 			->setArguments([$bingApi]);
 	}
 
-	protected function prepareHook(array $config)
+	protected function prepareConfig(array $config)
 	{
-		$bingConfig = new BingApiConfig;
-		$bingConfig->tagId = $config['tagId'];
-		$bingConfig->meta = $config['meta'];
-		return $bingConfig;
+		$builder = $this->getContainerBuilder();
+		return $builder->addDefinition($this->prefix('config'))
+			->setFactory(BingApiConfig::class)
+			->addSetup('$tagId', [$config['tagId']])
+			->addSetup('$meta', [$config['meta']]);
 	}
 }

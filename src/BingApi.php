@@ -29,6 +29,7 @@ class BingApi extends Control
 
 	/**
 	 * @param float|null $value
+	 * @param string $currency
 	 * @return static
 	 */
 	public function conversion(float $value, string $currency): self

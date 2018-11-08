@@ -18,10 +18,10 @@ class BingApiConfig
 {
 	use SmartObject;
 
-	/** @var int */
+	/** @var int|null */
 	private $tagId;
 
-	/** @var string */
+	/** @var string|null */
 	private $meta;
 
 	protected function getTagId(): ?int

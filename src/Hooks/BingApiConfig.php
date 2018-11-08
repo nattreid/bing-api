@@ -9,8 +9,8 @@ use Nette\SmartObject;
 /**
  * Class BingApiConfig
  *
- * @property int $tagId
- * @property string $meta
+ * @property int|null $tagId
+ * @property string|null $meta
  *
  * @author Attreid <attreid@gmail.com>
  */
